@@ -29,4 +29,9 @@ Step-7: Run python manage.py migrate (to enable the changes)
 Step-8: Run python manage.py startapp appname --Creating the apps
 Add the created app in Installed_Apps in settings.py file
 Step-9: Create required html files in template folder. Add urls and views.
+Step-10: Using the data in local database i did Create,Read,Update and Delete Operations.
 
+Deploy:
+Run python manage.py runserver
+
+Didnot deploy it globally as I used my local database for storing data.
