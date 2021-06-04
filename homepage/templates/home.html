@@ -1,0 +1,116 @@
+  {% extends 'base.html' %}
+  {% load static %}
+{% block content %}
+<style>
+  .mySlides {display:none;}
+  .column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 70%;
+}
+
+.right {
+  width: 30%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  </style>
+  <body>
+  
+  <h2>Homepage</h2>
+  <p>Welcome to the XYZ Company Site!</p>
+
+  <div class="container">
+    <h2 style="color: blue"><u>Employee Records: </u></h2>         
+    <table class="table table-hover">
+      <thead>
+        {% if rec %}
+        <tr>
+          <th style="color: brown">Employee Id</th>
+          <th style="color: brown">Employee Name</th>
+          <th style="color: brown">Designation</th>
+          <th style="color: brown">Salary</th>
+          <th style="color: brown">City</th>
+          {%if user1%}
+          <th style="color:brown">Edit</th>
+          <th style="color:brown">Delete</th>
+          {%endif%}
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in rec %}
+        <tr>
+          <td>{{i.emp_id}}</td>
+          <td>{{i.emp_name}}</td>
+          <td>{{i.designation}}</td>
+          <td>{{i.salary}}</td>
+          <td>{{i.city}}</td>
+          {%if user1%}
+          <td><i style='font-size:24px' class='fas'><a href="/update_record/{{i.emp_id}}/{{user1}}">&#xf044;</a></i></td>
+          <td><i style='font-size:24px' class='fas'><a href="/delete_record/{{i.emp_id}}/{{user1}}">&#xf1f8;</a></i></td>
+          {%endif%}
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h3 style="color: blue">No Employee Records</h3>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+
+  <script>
+  var myIndex = 0;
+  carousel();
+  
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2500);    
+  }
+  </script>
+  
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

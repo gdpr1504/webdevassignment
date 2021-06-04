@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+            <div class="container">
+             <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Employee Details</legend>
+                          <div class="form-group">
+                            <label for="Username">Employee ID:</label>
+                            <input type="number" class="form-control" id="emp_id" placeholder="Enter Employee ID" name="emp_id">
+                          </div>
+                          <div class="form-group">
+                            <label for="pwd">Employee Name:</label>
+                            <input type="text" class="form-control" id="emp_name" placeholder="Enter Employee Name" name="emp_name">
+                          </div>
+                          <div class="form-group">
+                            <label for="pwd">Designation:</label>
+                            <input type="text" class="form-control" id="designation" placeholder="Enter Employee Designation" name="designation">
+                          </div>
+                          <div class="form-group">
+                            <label for="pwd">Employee Salary:</label>
+                            <input type="number" class="form-control" id="salary" placeholder="Enter Employee Salary" name="salary">
+                          </div>
+                          <div class="form-group">
+                            <label for="pwd">Employee City:</label>
+                            <input type="text" class="form-control" id="city" placeholder="Enter Employee City" name="city">
+                          </div>
+                </fieldset>
+            
+                <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Create</button>
+                          
+                </div>
+        </form>
+    </div>
+       </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
